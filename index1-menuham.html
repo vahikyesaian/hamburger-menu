@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            /* border: 1px solid black; */
+            background-color: darkgray;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: space-evenly;
+            margin: 100px auto;
+            transition: 1s;
+        }
+        .box>span{
+            display: flex;
+            width: 90%;
+            height: 4px;
+            background-color: black;
+            border-radius: 3px;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+        @keyframes line1{
+            40%{transform: translateX(-50px);}
+            60%{transform: translateX(-50px);}
+            100%{transform: rotate(90deg)translateY(80px);}
+        }
+        @keyframes line11{
+            0%{transform: translatey(80px)rotate(90deg);}
+            40%{transform: translateX(-50px)rotate(0);}
+            60%{transform: translateX(-50px)rotate(0);}
+            100%{transform: rotate(0)translatex(0);}
+        }
+        @keyframes line2{
+            40%{transform: translateX(50px);}
+            60%{transform: translateX(50px);}
+            100%{transform: rotate(-90deg)translatey(0);}
+        }
+        @keyframes line22{
+            0%{transform: translatey(0)rotate(-90deg);}
+            40%{transform: translateX(50px)rotate(0);}
+            60%{transform: translateX(50px)rotate(0);}
+            100%{transform: rotate(0)translatex(0);}
+        }
+        @keyframes line3{
+            40%{transform: translateX(-50px);}
+            60%{transform: translateX(-50px);}
+            100%{transform: rotate(-90deg)translatey(70px);}
+        }
+        @keyframes line33{
+            0%{transform: translateY(70px)rotate(-90deg);}
+            40%{transform: translateX(-50px)rotate(0);}
+            60%{transform: translateX(-50px)rotate(0);}
+            100%{transform: rotate(0)translateX(0);}
+        }
+    </style>
+</head>
+<body>
+    <div onclick="ham()" class="box">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</body>
+<script>
+    let x= true
+    let _line = document.querySelectorAll('.box>span')
+
+    function ham(){
+        if(x){
+            _line[0].style.animationName='line1'
+            _line[1].style.animationName='line2'
+            _line[2].style.animationName='line3'
+            document.getElementsByClassName('box')[0].style.backgroundColor='transparent'
+        }else{
+            _line[0].style.animationName='line11'
+            _line[0].style.animationDuration='1.5s'
+            _line[1].style.animationName='line22'
+            _line[1].style.animationDuration='1.5s'
+            _line[2].style.animationName='line33'
+            _line[2].style.animationDuration='1.5s'
+            document.getElementsByClassName('box')[0].style.backgroundColor='darkgray'
+
+        }
+        x = !x
+    }
+</script>
+</html>
